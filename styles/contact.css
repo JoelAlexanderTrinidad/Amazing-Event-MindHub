@@ -1,6 +1,6 @@
 
 .main-contact:not(h1){
-    height: 50rem;
+    height: 44rem;
 }
 
 .main-section-contact h1{
@@ -16,5 +16,8 @@
         height: 40rem;
         background-color: rgb(240, 228, 222);
         width: 60%;
+    }
+    .main-contact:not(h1){
+        height: 50rem;
     }
 }
