@@ -1,6 +1,6 @@
 .main-contact{
     height: 100%;
-    background-color: #bed7dd;
+    /* background-color: #bed7dd; */
 }
 
 .main-section-contact h1{
@@ -8,5 +8,5 @@
 }
 
 .form-contact{
-    height: 25rem;
+    height: 30rem;
 }
