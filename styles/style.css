@@ -59,7 +59,7 @@ form{
 }
 
 .tarjeta{
-    height: 20rem;
+    height: 21rem;
     padding: 0;
 }
 
@@ -73,6 +73,7 @@ form{
     font-size: 14px;
     text-align: center;
     height: 2.5rem;
+    margin: 0;
 }
 
 .img-tarjeta{
@@ -109,6 +110,12 @@ footer p{
         font-size: 18px;
     }
     .label-formulario{
-        font-size: 14px;
+        font-size: 18px;
+    }
+    .tarjeta{
+        height: 30rem;
+    }
+    .img-tarjeta{
+        height: 8.5rem;
     }
 }
