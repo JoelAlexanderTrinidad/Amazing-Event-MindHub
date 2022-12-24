@@ -110,6 +110,11 @@ footer p{
     color: white;
 }
 
+.tarjeta-details{
+    border-radius: 10px;
+    background-color: rgb(214, 214, 209);
+}
+
 /* mediaqueries tablet */
 @media(min-width: 768px){
     .navegacion{
@@ -135,6 +140,15 @@ footer p{
     }
     .lista a{
         font-size: 18px;
+    }
+    .main-details{
+        height: 70vh;
+    }
+    .tarjeta-details{
+        font-size: 15px;
+    }
+    .tarjeta-details h5{
+        font-size: 20px;
     }
 }
 
@@ -169,5 +183,11 @@ footer p{
     }
     .tarjeta{
         height: 23rem;
+    }
+    .tarjeta-details{
+        font-size: 18px;
+    }
+    .tarjeta-details h5{
+        font-size: 22px;
     }
 }
