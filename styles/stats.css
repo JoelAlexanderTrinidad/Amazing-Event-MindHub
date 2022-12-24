@@ -1,0 +1,27 @@
+.tabla{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table{
+    width: 92%;
+}
+
+table, .th, .td{
+    border: 2px solid #302e3a;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.th{
+    text-align: center;
+    width: 20%;
+    height: 4rem;
+}
+
+.titulo-tabla{
+    background-color: #4a7aa1;
+    color: white;
+    text-align: center;
+}
