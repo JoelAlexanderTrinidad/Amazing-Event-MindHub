@@ -92,8 +92,8 @@ form{
 }
 
 footer{
-    height: 20vh;
-    background-color: #4a7aa1;
+    height: 15vh;
+    background-color: #302e3a;
 }
 
 footer div{
@@ -117,10 +117,10 @@ footer p{
         font-size: 16px;
     }
     .tarjeta{
-        height: 25rem;
+        height: 28rem;
     }
     .img-tarjeta{
-        height: 9.5rem;
+        height: 12rem;
     }
     .texto-tarjeta{
         font-size: 16px;
@@ -130,5 +130,38 @@ footer p{
     }
     .lista a{
         font-size: 18px;
+    }
+}
+
+@media(min-width: 992px){
+    .links{
+        width: 8.5rem;
+        background-color: #394662;
+        border: none;
+    }
+    .contenedor-a{
+        color: white;
+        font-weight: bold;
+    }
+    .links:hover{
+        transform: scale(1.2);
+        transition: .3s all;
+    }
+    .label-formulario{
+        font-size: 12px;
+    }
+    .formulario-index{
+        background-color: rgb(252, 114, 114);
+        height: 5rem;
+    }
+    .seccion1{
+        /* background-color: red; */
+        height: 12rem;
+    }
+    .img-tarjeta{
+        height: 8rem;
+    }
+    .tarjeta{
+        height: 23rem;
     }
 }
