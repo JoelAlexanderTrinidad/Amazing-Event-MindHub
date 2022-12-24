@@ -24,6 +24,10 @@ nav{
     background-color: #302e3a;
 }
 
+.nav-modal-index{
+    height: 20rem;
+}
+
 .boton-menu{
     color: white;
 }
@@ -110,12 +114,21 @@ footer p{
         font-size: 18px;
     }
     .label-formulario{
-        font-size: 18px;
+        font-size: 16px;
     }
     .tarjeta{
-        height: 30rem;
+        height: 25rem;
     }
     .img-tarjeta{
-        height: 8.5rem;
+        height: 9.5rem;
+    }
+    .texto-tarjeta{
+        font-size: 16px;
+    }
+    .titulo-tarjeta{
+        font-size: 20px;
+    }
+    .lista a{
+        font-size: 18px;
     }
 }
