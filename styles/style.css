@@ -30,7 +30,7 @@ nav{
 
 .nav-modal-index{
     height: 20rem;
-    background-color: #fc7272;
+    background-color: #2c313f;
 }
 
 .boton-menu{
@@ -147,6 +147,7 @@ footer p{
     .contenedor-a{
         color: white;
         font-weight: bold;
+        font-size: 12px;
     }
     .links:hover{
         transform: scale(1.2);

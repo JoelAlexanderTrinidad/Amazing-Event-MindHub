@@ -14,16 +14,16 @@
     
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark nav-modal-index">
+            <div class="modal-content bg-light nav-modal-index">
                 <div class="modal-header">
-                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body d-flex flex-column justify-content-evenly">
-                    <a class="text-center text-bg-secondary py-1 nav-link links" href="#">Home</a>
-                    <a class="text-center text-bg-secondary py-1 nav-link links" href="./upComingEvents.html">Upcoming Events</a>
-                    <a class="text-center text-bg-secondary py-1 nav-link links" href="./pastEvents.html">Past Events</a>
-                    <a class="text-center text-bg-secondary py-1 nav-link links" href="./contact.html">Contact</a>
-                    <a class="text-center text-bg-secondary py-1 nav-link links" href="./stats.html">Stats</a>
+                <div class="nav-modal-index modal-body d-flex flex-column justify-content-evenly">
+                    <a class="text-center text-light bg-danger py-1 nav-link links" href="./index.html">HOME</a>
+                    <a class="text-center text-light bg-danger py-1 nav-link links" href="./upComingEvents.html">UPCOMING EVENTS</a>
+                    <a class="text-center text-light bg-danger py-1 nav-link links" href="#">PAST EVENTS</a>
+                    <a class="text-center text-light bg-danger py-1 nav-link links" href="./contact.html">CONTACT</a>
+                    <a class="text-center text-light bg-danger py-1 nav-link links" href="./stats.html">STATS</a>
                 </div>
             </div>
         </div>
@@ -31,182 +31,182 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <div class="col-4 p-0 contenedor-logo">
-                <a href="#"><img class="col-12 col-md-12 logo p-2" src="../RecursosAmazingEvents/Logo-Amazing-Events.png" alt=""></a>
+            <div class="col-4 col-lg-2 p-0 contenedor-logo">
+                <a href="./index.html"><img class="col-12 col-md-12 logo p-2" src="../RecursosAmazingEvents/Logo-Amazing-Events.png" alt=""></a>
             </div>
           <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Close">
             <span><i class="fa-solid fa-bars boton-menu"></i></span>
           </button>
-          <div class="collapse navbar-collapse mt-3">
-                <a class="text-center bg-light nav-link links" href="#">Home</a>
-                <a class="text-center bg-light nav-link links" href="./upComingEvents.html">Upcoming Events</a>
-                <a class="text-center bg-light nav-link links" href="./pastEvents.html">Past Events</a>
-                <a class="text-center bg-light nav-link links" href="./contact.html">Contact</a>
-                <a class="text-center bg-light nav-link links" href="./stats.html">Stats</a>
+          <div class="collapse navbar-collapse mt-3 mt-lg-0 justify-content-lg-end contenedor-a">
+                <a class="text-center py-2 me-lg-4 nav-link links" href="./index.html">Home</a>
+                <a class="text-center py-2 me-lg-4 nav-link links" href="./upComingEvents.html">Upcoming Events</a>
+                <a class="text-center py-2 me-lg-4 nav-link links" href="#">Past Events</a>
+                <a class="text-center py-2 me-lg-4 nav-link links" href="./contact.html">Contact</a>
+                <a class="text-center py-2 me-lg-4 nav-link links" href="./stats.html">Stats</a>
           </div>
         </div>
       </nav>
 
-        <main class="main-index">
-            <section class=" seccion1">
+      <main class="main-index ">
+        <section class=" seccion1">
 
-                <h1 class="text-center py-3 text-light">PAST EVENTS</h1>
-                
-                <form class="row d-flex align-items-center container-fluid p-0 m-0">
-                    <div class="form-check col-6 d-flex justify-content-center">
+            <h1 class="text-center py-3 mb-0 text-light fs-4">PAST EVENTS</h1>
+            
+            <form class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-evenly formulario-index">
+                <div class=" row container-fluid p-0 m-0 col-lg-8 justify-content-lg-evenly">
+                    <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
                         <input type="checkbox" name="category1" class="form-check-input" id="check1">
-                        <label class="form-check-label ps-3 label-formulario col-8" for="check1">Food Fair</label>
+                        <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="check1">Food Fair</label>
                     </div>
-                    <div class="form-check col-6 d-flex justify-content-center">
+                    <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
                         <input type="checkbox" name="category2" class="form-check-input" id="check2">
-                        <label class="form-check-label ps-3 label-formulario col-8" for="check2">Museum</label>
+                        <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="check2">Museum</label>
                     </div>
-                    <div class="form-check col-6 d-flex justify-content-center">
+                    <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
                         <input type="checkbox" name="category3" class="form-check-input" id="check3">
-                        <label class="form-check-label ps-3 label-formulario col-8" for="check3">Costume Party</label>
+                        <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="check3">Costume Party</label>
                     </div>
-                    <div class="form-check col-6 d-flex justify-content-center">
+                    <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
                         <input type="checkbox" name="category4" class="form-check-input" id="check4">
-                        <label class="form-check-label ps-3 label-formulario col-8" for="check4">Music Concert</label>
+                        <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="check4">Music Concert</label>
                     </div>
-                    <div class="form-check col-6 d-flex justify-content-center">
+                    <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
                         <input type="checkbox" name="category5" class="form-check-input" id="check5">
-                        <label class="form-check-label ps-3 label-formulario col-8" for="check5">Race</label>
+                        <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="check5">Race</label>
                     </div>
-                    <div class="form-check col-6 d-flex justify-content-center">
+                    <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
                         <input type="checkbox" name="category5" class="form-check-input" id="check6">
-                        <label class="form-check-label ps-3 label-formulario col-8" for="check6">Book Exchange</label>
+                        <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="check6">Book Exchange</label>
                     </div>
-                    <div class="form-check col-6 d-flex justify-content-center">
+                    <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
                         <input type="checkbox" name="category5" class="form-check-input" id="check7">
-                        <label class="form-check-label ps-3 label-formulario col-8" for="check7">Cinema</label>
-                    </div>
-                    <div class="input-group px-5">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping">
-                        <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    </div>
-                </form>
-            </section>
-
-
-            <section class="row row-cols-2 container-fluid px-0 mx-auto justify-content-center gap-3 my-4">
-
-                <div class="card col-5">
-                    <div class="p-2 pt-md-3 pt-md-3 tarjeta">
-                        <img src="https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg" class="img-tarjeta" alt="...">
-                        <div class="">
-                          <h5 class="pt-1 titulo-tarjeta">Collectivities Party</h5>
-                          <p class="texto-tarjeta">Enjoy your favourite dishes</p>
-                          <p class="text-center pt-2 mb-0">Price: <span class="text-success">$5</span></p>
-                          <p class="texto-tarjeta">Date: 2021-12-12</p>
-                          <div class="justify-content-center d-flex">
-                              <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
-                          </div>
-                        </div>
+                        <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="check7">Cinema</label>
                     </div>
                 </div>
+                <div class="input-group px-5 px-lg-0 px-lg-5 ">
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+            </form>
+        </section>
 
-                <div class="card col-5 ">
-                    <div class="p-2 pt-md-3 tarjeta">
-                        <img src="https://i.postimg.cc/GmHRkbNV/Jurassic-Park.jpg" class="img-tarjeta" alt="...">
-                        <div class="">
-                          <h5 class="pt-1 titulo-tarjeta">Jurassic Park</h5>
-                          <p class="texto-tarjeta">Let's go meet the biggest dinosaurs</p>
-                          <p class="text-center pt-2 mb-0">Price: <span class="text-success">$15</span></p>
-                          <p class="texto-tarjeta">Date: 2021-11-02</p>
-                          <div class="justify-content-center d-flex">
-                              <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
-                          </div>
-                        </div>
+        <section class="row row-cols-2 container-fluid px-0 mx-auto justify-content-center justify-content-lg-evenly gap-3 my-4">
+
+            <div class="card col-5 col-lg-3 col-xl-2">
+                <div class="p-2 pt-md-3 tarjeta">
+                    <img src="https://i.postimg.cc/KvsSK8cj/Electronic-Fest.jpg" class="img-tarjeta" alt="...">
+                    <div class="">
+                      <h5 class="pt-1 titulo-tarjeta">Electronic Fest</h5>
+                      <p class="texto-tarjeta">The best national and international DJs</p>
+                      <p class="text-center pt-2 mb-0">Price: <span class="text-success">$250</span></p>
+                      <p class="texto-tarjeta">Date: 2021-01-22</p>
+                      <div class="justify-content-center d-flex">
+                          <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
+                      </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card col-5">
-                    <div class="p-2 pt-md-3 tarjeta">
-                        <img src="https://i.postimg.cc/KYD0jMf2/comicon.jpg" class="img-tarjeta" alt="...">
-                        <div class="">
-                          <h5 class="pt-1 titulo-tarjeta">Comicon</h5>
-                          <p class="texto-tarjeta">For comic lovers</p>
-                          <p class="text-center pt-2 mb-0">Price: <span class="text-success">$54</span></p>
-                          <p class="texto-tarjeta">Date: 2021-02-12</p>
-                          <div class="justify-content-center d-flex">
-                              <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
-                          </div>
-                        </div>
+            <div class="card col-5 col-lg-3 col-xl-2">
+                <div class="p-2 pt-md-3 tarjeta">
+                    <img src="https://i.postimg.cc/fyLqZY9K/10-K-for-life.jpg" class="img-tarjeta" alt="...">
+                    <div class="">
+                      <h5 class="pt-1 titulo-tarjeta">10K for life</h5>
+                      <p class="texto-tarjeta">Come and exercise</p>
+                      <p class="text-center pt-2 mb-0">Price: <span class="text-success">$3</span></p>
+                      <p class="texto-tarjeta">Date: 2021-03-01</p>
+                      <div class="justify-content-center d-flex">
+                          <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
+                      </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card col-5">
-                    <div class="p-2 pt-md-3 tarjeta">
-                        <img src="https://i.postimg.cc/KvsSK8cj/Electronic-Fest.jpg" class="img-tarjeta" alt="...">
-                        <div class="">
-                          <h5 class="pt-1 titulo-tarjeta">Electronic Fest</h5>
-                          <p class="texto-tarjeta">The best national and international DJs</p>
-                          <p class="text-center pt-2 mb-0">Price: <span class="text-success">$250</span></p>
-                          <p class="texto-tarjeta">Date: 2021-01-22</p>
-                          <div class="justify-content-center d-flex">
-                              <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
-                          </div>
-                        </div>
+            <div class="card col-5 col-lg-3 col-xl-2">
+                <div class="p-2 pt-md-3 tarjeta">
+                    <img src="https://i.postimg.cc/KvsSK8cj/Electronic-Fest.jpg" class="img-tarjeta" alt="...">
+                    <div class="">
+                      <h5 class="pt-1 titulo-tarjeta">15K NY</h5>
+                      <p class="texto-tarjeta">We'll be raising funds </p>
+                      <p class="text-center pt-2 mb-0">Price: <span class="text-success">$3</span></p>
+                      <p class="texto-tarjeta">Date: 2022-03-01</p>
+                      <div class="justify-content-center d-flex">
+                          <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
+                      </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card col-5">
-                    <div class="p-2 pt-md-3 tarjeta">
-                        <img src="https://i.postimg.cc/fyLqZY9K/10-K-for-life.jpg" class="img-tarjeta" alt="...">
-                        <div class="">
-                          <h5 class="pt-1 titulo-tarjeta">10K for life</h5>
-                          <p class="texto-tarjeta">Come and exercise</p>
-                          <p class="text-center pt-2 mb-0">Price: <span class="text-success">$3</span></p>
-                          <p class="texto-tarjeta">Date: 2021-03-01</p>
-                          <div class="justify-content-center d-flex">
-                              <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
-                          </div>
-                        </div>
+            <div class="card col-5 col-lg-3 col-xl-2">
+                <div class="p-2 pt-md-3 tarjeta">
+                    <img src="https://i.postimg.cc/Sst763n6/book1.jpg" class="img-tarjeta" alt="...">
+                    <div class="">
+                      <h5 class="pt-1 titulo-tarjeta">School's book fair</h5>
+                      <p class="texto-tarjeta">Bring your unused school book</p>
+                      <p class="text-center pt-2 mb-0">Price: <span class="text-success">$3</span></p>
+                      <p class="texto-tarjeta">Date: 2022-10-15</p>
+                      <div class="justify-content-center d-flex">
+                          <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
+                      </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card col-5">
-                    <div class="p-2 pt-md-3 tarjeta">
-                        <img src="https://i.postimg.cc/05FhxHVK/book4.jpg" class="img-tarjeta" alt="...">
-                        <div class="">
-                          <h5 class="pt-1 titulo-tarjeta">Just for your kitchen</h5>
-                          <p class="texto-tarjeta">If you're a gastronomy lover</p>
-                          <p class="text-center pt-2 mb-0">Price: <span class="text-success">$100</span></p>
-                          <p class="texto-tarjeta">Date: 2021-11-09</p>
-                          <div class="justify-content-center d-flex">
-                              <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
-                          </div>
-                        </div>
+            <div class="card col-5 col-lg-3 col-xl-2">
+                <div class="p-2 pt-md-3 tarjeta">
+                    <img src="https://i.postimg.cc/05FhxHVK/book4.jpg" class="img-tarjeta" alt="...">
+                    <div class="">
+                      <h5 class="pt-1 titulo-tarjeta">Just for your kitchen</h5>
+                      <p class="texto-tarjeta">If you're a gastronomy lover</p>
+                      <p class="text-center pt-2 mb-0">Price: <span class="text-success">$100</span></p>
+                      <p class="texto-tarjeta">Date: 2021-11-09</p>
+                      <div class="justify-content-center d-flex">
+                          <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
+                      </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card col-5">
-                    <div class="p-2 pt-md-3 tarjeta">
-                        <img src="https://i.postimg.cc/vH52y81C/cinema4.jpg" class="img-tarjeta" alt="...">
-                        <div class="">
-                          <h5 class="pt-1 titulo-tarjeta">Batman</h5>
-                          <p class="texto-tarjeta">Come see Batman</p>
-                          <p class="text-center pt-2 mb-0">Price: <span class="text-success">$225</span></p>
-                          <p class="texto-tarjeta">Date: 2021-3-11</p>
-                          <div class="justify-content-center d-flex">
-                              <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
-                          </div>
-                        </div>
+            <div class="card col-5 col-lg-3 col-xl-2">
+                <div class="p-2 pt-md-3 tarjeta">
+                    <img src="https://i.postimg.cc/vH52y81C/cinema4.jpg" class="img-tarjeta" alt="...">
+                    <div class="">
+                      <h5 class="pt-1 titulo-tarjeta">Batman</h5>
+                      <p class="texto-tarjeta">Come see Batman</p>
+                      <p class="text-center pt-2 mb-0">Price: <span class="text-success">$225</span></p>
+                      <p class="texto-tarjeta">Date: 2021-3-11</p>
+                      <div class="justify-content-center d-flex">
+                          <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
+                      </div>
                     </div>
                 </div>
+            </div>
 
-            </section>
-        <main>
-
-            <footer class="d-flex justify-content-evenly align-items-center">
-                <div class="w-50 ">
-                    <i class="p-2 ms-md-3 rounded-circle text-bg-dark fa-brands fa-instagram"></i>
-                    <i class="p-2 ms-md-3 rounded-circle text-bg-dark fa-brands fa-facebook"></i>
-                    <i class="p-2 ms-md-3 rounded-circle text-bg-dark fa-brands fa-whatsapp"></i>
+            <div class="card col-5 col-lg-3 col-xl-2">
+                <div class="p-2 pt-md-3 tarjeta">
+                    <img src="https://i.postimg.cc/T3C92KTN/scale.jpg" class="img-tarjeta" alt="...">
+                    <div class="">
+                      <h5 class="pt-1 titulo-tarjeta">Avengers</h5>
+                      <p class="texto-tarjeta">Marvel's Avengers Premier in 3d</p>
+                      <p class="text-center pt-2 mb-0">Price: <span class="text-success">$250</span></p>
+                      <p class="texto-tarjeta">Date: 2022-10-15</p>
+                      <div class="justify-content-center d-flex">
+                          <a href="./details.html" class="btn btn-danger boton-tarjeta">View more</a>
+                      </div>
+                    </div>
                 </div>
-                <p class="m-0">COHORT 41</p>
-            </footer>
+            </div>
+
+        </section>
+
+        <footer class="d-flex justify-content-evenly align-items-center">
+            <div class="w-50 ">
+                <i class="p-2 ms-md-3 rounded-circle text-bg-dark fa-brands fa-instagram"></i>
+                <i class="p-2 ms-md-3 rounded-circle text-bg-dark fa-brands fa-facebook"></i>
+                <i class="p-2 ms-md-3 rounded-circle text-bg-dark fa-brands fa-whatsapp"></i>
+            </div>
+            <p class="m-0">COHORT 41</p>
+        </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
