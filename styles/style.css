@@ -14,6 +14,10 @@
     height: 30vh;
 }
 
+.formulario-index{
+    background-color: #fc7272;
+}
+
 .label-formulario{
     font-size: 14px;
     font-weight: bold;
@@ -26,6 +30,7 @@ nav{
 
 .nav-modal-index{
     height: 20rem;
+    background-color: #fc7272;
 }
 
 .boton-menu{
