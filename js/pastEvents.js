@@ -18,7 +18,6 @@ const seccion = document.getElementById('section-pastEvents')
 function cardsPast(arr, lugar){
     let div = document.createElement('div');
     div.classList.add('row', 'row-cols-2', 'container-fluid', 'px-0', 'mx-auto', 'justify-content-center', 'justify-content-lg-evenly', 'gap-3', 'my-4')
-
     for(let elemento of arr){
         div.innerHTML +=
              `

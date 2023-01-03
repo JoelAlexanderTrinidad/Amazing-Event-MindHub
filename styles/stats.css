@@ -25,3 +25,9 @@ table, .th, .td{
     color: white;
     text-align: center;
 }
+
+@media(min-width: 1200px){
+    table, .th, .td {
+        font-size: 16px;
+    }
+}
