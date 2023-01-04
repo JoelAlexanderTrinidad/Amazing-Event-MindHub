@@ -35,6 +35,7 @@ function crearCard(arr, lugar){
 crearCard(eventos, seccion)
 
 /*  */
+
 const $check = document.getElementById('checks')
 const todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventos)))
 
@@ -65,7 +66,9 @@ function busquedaCheck(){
     const checkeados = obtenerCheckeados()
     const checkValue = checkeados.map(checkeados => checkeados.value)
     const eventosFiltrados = eventos.filter(evento => checkValue.includes(evento.category))
-    // console.log(eventosFiltrados)
+    if(eventosFiltrados.length === 0){
+        return renderizar(generarCards(eventos), 'seccion-index')
+    }
     renderizar(generarCards(eventosFiltrados), 'seccion-index')
 }
 
@@ -80,9 +83,11 @@ function renderizar(template, donde){
 }
 
 function generarCards(eventos){
-    let template = ''
+    let aux = ''
+    let div = document.createElement('div')
+    div.classList.add('row', 'row-cols-2', 'container-fluid', 'px-0', 'mx-auto', 'justify-content-center', 'justify-content-lg-evenly', 'gap-3', 'my-4')
     eventos.forEach(evento => {
-        template.innerHTML += `
+        aux += `
         <div class="card col-5 col-lg-3 col-xl-2">
             <div class="p-2 pt-md-3 pt-md-3 tarjeta">
                 <img src=${evento.image} class="img-tarjeta" alt="...">
@@ -99,6 +104,8 @@ function generarCards(eventos){
         </div>
         `
     })
+    div.innerHTML = aux
+    let template = div.outerHTML;
     console.log(template)
     return template
 }
