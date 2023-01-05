@@ -113,8 +113,12 @@ function generarCards(eventos){
 }
 
 function busquedaInputText(e){
-    let inputFiltrado = eventos.filter(evento => evento.name.startsWith($input.value))
-    console.log(inputFiltrado)
+    let inputFiltrado = eventos.filter(evento => evento.name.toLowerCase().startsWith( e.target.value.toLowerCase() ))
+    renderizar(generarCards(inputFiltrado), 'seccion-index')
+}
+
+function cruzarBusqueda(){
+    
 }
 
 
