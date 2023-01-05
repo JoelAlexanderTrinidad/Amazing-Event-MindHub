@@ -61,8 +61,8 @@ function generarCheckbox(categorias){
     return template
 }
 
-$check.addEventListener('change', busquedaCheck)
-$input.addEventListener('input', busquedaInputText)
+$check.addEventListener('change', cruzarBusqueda)
+$input.addEventListener('input', cruzarBusqueda)
 
 function obtenerCheckeados(){
     const checkbox = document.querySelectorAll( 'input[type="checkbox"]:checked' )
@@ -101,23 +101,30 @@ function generarCards(eventos){
     return template
 }
 
-function busquedaCheck(){
+function busquedaCheck(valueInput, listaEventos){
     const checkeados = obtenerCheckeados()
     const checkValue = checkeados.map(checkeados => checkeados.value)
-    const eventosFiltrados = eventos.filter(evento => checkValue.includes(evento.category))
-    if(eventosFiltrados.length === 0){
-        return renderizar(generarCards(eventos), 'seccion-index')
+
+    const eventosCheck = eventos.filter(evento => checkValue.includes(evento.category))
+
+    if(eventosCheck.length > 0){
+        const filtroCruzado = eventosCheck.filter(evento => evento.name.toLowerCase().startsWith(valueInput.value.toLowerCase()))
+        return filtroCruzado
+    }else{
+        return listaEventos
     }
-    renderizar(generarCards(eventosFiltrados), 'seccion-index')
 }
 
-function busquedaInputText(e){
-    let inputFiltrado = eventos.filter(evento => evento.name.toLowerCase().startsWith( e.target.value.toLowerCase() ))
-    renderizar(generarCards(inputFiltrado), 'seccion-index')
+function busquedaInputText(busquedaInput){
+    let inputFiltrado = eventos.filter(evento => evento.name.toLowerCase().startsWith( busquedaInput.value.toLowerCase() ))
+    return inputFiltrado
 }
+
 
 function cruzarBusqueda(){
-    
+    const filtroInput = busquedaInputText($input)
+    const filtroCheck = busquedaCheck($input,filtroInput)
+    renderizar(generarCards(filtroCheck), 'seccion-index')
 }
 
 
