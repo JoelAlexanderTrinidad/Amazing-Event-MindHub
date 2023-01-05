@@ -33,7 +33,7 @@ function renderDetalleEvento(){
                 <p class="card-text text-center">Capacity: ${eventoEncontrado.capacity}</p>
                 <p class="card-text text-center">${estimateOrAssistance}</p>
                 <p class="card-text text-center">${eventoEncontrado.description}</p>
-                <p class="card-text text-center price-color">Price: USD ${eventoEncontrado.price}</p>
+                <p class="card-text text-center">Price: <span class="price-color">USD ${eventoEncontrado.price}</span></p>
             </div>
         </div>
     </div>
