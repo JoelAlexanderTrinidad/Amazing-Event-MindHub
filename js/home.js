@@ -64,17 +64,6 @@ function generarCheckbox(categorias){
 $check.addEventListener('change', busquedaCheck)
 $input.addEventListener('input', busquedaInputText)
 
-
-function busquedaCheck(){
-    const checkeados = obtenerCheckeados()
-    const checkValue = checkeados.map(checkeados => checkeados.value)
-    const eventosFiltrados = eventos.filter(evento => checkValue.includes(evento.category))
-    if(eventosFiltrados.length === 0){
-        return renderizar(generarCards(eventos), 'seccion-index')
-    }
-    renderizar(generarCards(eventosFiltrados), 'seccion-index')
-}
-
 function obtenerCheckeados(){
     const checkbox = document.querySelectorAll( 'input[type="checkbox"]:checked' )
     const checkboxArray = Array.from(checkbox)
@@ -110,6 +99,16 @@ function generarCards(eventos){
     div.innerHTML = aux
     let template = div.outerHTML;
     return template
+}
+
+function busquedaCheck(){
+    const checkeados = obtenerCheckeados()
+    const checkValue = checkeados.map(checkeados => checkeados.value)
+    const eventosFiltrados = eventos.filter(evento => checkValue.includes(evento.category))
+    if(eventosFiltrados.length === 0){
+        return renderizar(generarCards(eventos), 'seccion-index')
+    }
+    renderizar(generarCards(eventosFiltrados), 'seccion-index')
 }
 
 function busquedaInputText(e){
