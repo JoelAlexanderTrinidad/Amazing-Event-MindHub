@@ -120,68 +120,8 @@ function busquedaInputText(busquedaInput){
     return inputFiltrado
 }
 
-
 function cruzarBusqueda(){
     const filtroInput = busquedaInputText($input)
     const filtroCheck = busquedaCheck($input,filtroInput)
     renderizar(generarCards(filtroCheck), 'seccion-index')
 }
-
-
-/* const $busquedaInput = document.getElementById('busqueda-input')
-
-const categorias = eventos.map(evento => evento.category)
-const categoriasSiRepetir = Array.from(new Set(categorias))
-
-renderizar(generarCheckbox(categoriasSiRepetir), 'checks')
-
-const $checkBox =document.getElementById('checks')
-
-$busquedaInput.addEventListener('input', filtroCruzado)
-$checkBox.addEventListener('change', filtroCruzado)
-
-
-function filtroCheck(eventos){
-    const checkbox = document.querySelectorAll( 'input[type="checkbox"]:checked' )
-    // buscar checks que esten checked
-    // transformar de input a value
-    // filtrar los eventos 
-    // return
-}
-
-function busquedaCheckbox(categoria, listaEventos){
-    let checkFiltrados = listaEventos.filter(evento => evento.categoria.includes(categoria.value))
-    return checkFiltrados
-}
-
-function busquedaInputText(busquedaText){
-    let eventosFiltrados = eventos.filter( evento => {
-        return evento.nombre.toLowerCase().startsWith( busquedaText.value.toLowerCase() )
-     } )
-     return eventosFiltrados
-}
-
-function generarCheckbox(categorias){
-    let template = ''
-    categorias.forEach( (categoria, indice) => {
-        template += `
-        <div class="form-check col-lg-auto col-6 p-lg-0 d-flex justify-content-center justify-content-lg-start">
-            <input value="${categoria}" type="checkbox" name="category2" class="check-box form-check-input" id="${indice}">
-            <label class="form-check-label ps-3 ps-lg-2 col-lg-auto label-formulario col-8" for="${indice}">${categoria}</label>
-        </div>
-        `
-    })
-    return template
-}
-
-function renderizar(template, donde){
-    document.getElementById(donde).innerHTML = template
-}
-
-
-function filtroCruzado(evento){
-    console.log(evento)
-    const filtroInpout = busquedaInputText($busquedaInput)
-    const filtroCheckBox = filtroCheck( $checkBox, filtroInpout )
-    renderizar( generarCheckbox( filtroCheckBox ), 'seccion-index' )
-} */
