@@ -101,6 +101,17 @@ function generarCards(eventos){
     return template
 }
 
+function mensajeNotFound(){
+    template = ''
+    let div = document.createElement('h2')
+    template = `
+        <h2 class="not-found">Results Not Found</h2>
+    `
+    div.innerHTML = template
+    return template
+}
+
+
 function busquedaCheck(valueInput, listaEventos){
     const checkeados = obtenerCheckeados()
     const checkValue = checkeados.map(checkeados => checkeados.value)
@@ -123,5 +134,8 @@ function busquedaInputText(busquedaInput){
 function cruzarBusqueda(){
     const filtroInput = busquedaInputText($input)
     const filtroCheck = busquedaCheck($input,filtroInput)
-    renderizar(generarCards(filtroCheck), 'seccion-index')
+    if(filtroCheck.length === 0){
+        return renderizar(mensajeNotFound(), 'seccion-index')
+    }
+    return renderizar(generarCards(filtroCheck), 'seccion-index')
 }

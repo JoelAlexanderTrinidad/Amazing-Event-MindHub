@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-/* body{
-    min-height: 50rem;
-} */
-
 .links{
     border: 2px solid rgb(233, 233, 233);
     font-weight: bold;
@@ -61,7 +57,7 @@ nav{
     /* background-color: #bed7dd; */
 }
 
-#seccion-index{
+.seccion2{
     min-height:38rem;
 }
 
@@ -125,6 +121,10 @@ footer p{
     background-color: rgb(214, 214, 209);
 }
 
+.not-found{
+    text-align: center;
+}
+
 /* mediaqueries tablet */
 @media(min-width: 768px){
     .navegacion{
@@ -174,7 +174,7 @@ footer p{
         font-size: 12px;
     }
     .links:hover{
-        transform: scale(1.2);
+        background-color: #fc7272;
         transition: .3s all;
     }
     .label-formulario{
