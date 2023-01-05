@@ -5,7 +5,6 @@ let seccion = document.getElementById('seccion-index')
 
 // crear funcion
 
-
 function crearCard(arr, lugar){
     let div = document.createElement('div')
     div.classList.add('row', 'row-cols-2', 'container-fluid', 'px-0', 'mx-auto', 'justify-content-center', 'justify-content-lg-evenly', 'gap-3', 'my-4')
@@ -37,6 +36,8 @@ crearCard(eventos, seccion)
 /*  */
 
 const $check = document.getElementById('checks')
+const $input = document.getElementById('busqueda-input')
+
 const todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventos)))
 
 function categoriasFiltradas(events){
@@ -61,6 +62,8 @@ function generarCheckbox(categorias){
 }
 
 $check.addEventListener('change', busquedaCheck)
+$input.addEventListener('input', busquedaInputText)
+
 
 function busquedaCheck(){
     const checkeados = obtenerCheckeados()
@@ -106,8 +109,12 @@ function generarCards(eventos){
     })
     div.innerHTML = aux
     let template = div.outerHTML;
-    console.log(template)
     return template
+}
+
+function busquedaInputText(e){
+    let inputFiltrado = eventos.filter(evento => evento.name.startsWith($input.value))
+    console.log(inputFiltrado)
 }
 
 
