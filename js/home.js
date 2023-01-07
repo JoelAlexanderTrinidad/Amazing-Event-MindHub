@@ -1,9 +1,25 @@
-const eventos = data.events 
-const fechaActual = data.currentDate
-
 let seccion = document.getElementById('seccion-index')
 
-// crear funcion
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then(response => response.json())
+    .then(data => {
+        let eventos = data.events
+        crearCard(eventos, seccion)
+        todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventos)))
+        $check.innerHTML = generarCheckbox(todasLasCategorias)
+        $check.addEventListener('change', cruzarBusqueda)
+        $input.addEventListener('input', cruzarBusqueda)
+        
+        function cruzarBusqueda(){
+            const filtroInput = busquedaInputText($input, eventos)
+            const filtroCheck = busquedaCheck($input,filtroInput, eventos)
+            if(filtroCheck.length === 0){
+                return renderizar(mensajeNotFound(), 'seccion-index')
+            }
+            return renderizar(generarCards(filtroCheck), 'seccion-index')
+        }
+    })
+    .catch(error => console.log(error))
 
 function crearCard(arr, lugar){
     let div = document.createElement('div')
@@ -31,21 +47,19 @@ function crearCard(arr, lugar){
     lugar.append(div)
 }
 
-crearCard(eventos, seccion)
-
 /*  */
 
 const $check = document.getElementById('checks')
 const $input = document.getElementById('busqueda-input')
 
-const todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventos)))
+let todasLasCategorias
 
 function categoriasFiltradas(events){
     const categorias = events.map(event => event.category)
     return categorias
 }
 
-$check.innerHTML = generarCheckbox(todasLasCategorias)
+
 
 function generarCheckbox(categorias){
 
@@ -61,8 +75,7 @@ function generarCheckbox(categorias){
     return template
 }
 
-$check.addEventListener('change', cruzarBusqueda)
-$input.addEventListener('input', cruzarBusqueda)
+
 
 function obtenerCheckeados(){
     const checkbox = document.querySelectorAll( 'input[type="checkbox"]:checked' )
@@ -112,11 +125,11 @@ function mensajeNotFound(){
 }
 
 
-function busquedaCheck(valueInput, listaEventos){
+function busquedaCheck(valueInput, listaEventos, todosLosEventos){
     const checkeados = obtenerCheckeados()
     const checkValue = checkeados.map(checkeados => checkeados.value)
 
-    const eventosCheck = eventos.filter(evento => checkValue.includes(evento.category))
+    const eventosCheck = todosLosEventos.filter(evento => checkValue.includes(evento.category))
 
     if(eventosCheck.length > 0){
         const filtroCruzado = eventosCheck.filter(evento => evento.name.toLowerCase().startsWith(valueInput.value.toLowerCase()))
@@ -126,16 +139,7 @@ function busquedaCheck(valueInput, listaEventos){
     }
 }
 
-function busquedaInputText(busquedaInput){
-    let inputFiltrado = eventos.filter(evento => evento.name.toLowerCase().startsWith( busquedaInput.value.toLowerCase() ))
+function busquedaInputText(busquedaInput, todosLosEventos){
+    let inputFiltrado = todosLosEventos.filter(evento => evento.name.toLowerCase().startsWith( busquedaInput.value.toLowerCase() ))
     return inputFiltrado
-}
-
-function cruzarBusqueda(){
-    const filtroInput = busquedaInputText($input)
-    const filtroCheck = busquedaCheck($input,filtroInput)
-    if(filtroCheck.length === 0){
-        return renderizar(mensajeNotFound(), 'seccion-index')
-    }
-    return renderizar(generarCards(filtroCheck), 'seccion-index')
 }

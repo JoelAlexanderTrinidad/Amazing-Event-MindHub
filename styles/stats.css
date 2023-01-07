@@ -17,13 +17,17 @@ table, .th, .td{
 .th{
     text-align: center;
     width: 20%;
-    height: 4rem;
+    height: 2rem;
 }
 
 .titulo-tabla{
     background-color: #4a7aa1;
     color: white;
     text-align: center;
+}
+
+.main-table{
+    min-height:38rem;
 }
 
 @media(min-width: 1200px){
