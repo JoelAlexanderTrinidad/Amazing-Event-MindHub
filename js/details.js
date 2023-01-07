@@ -3,7 +3,6 @@ const params = new URLSearchParams(url) // pasamos a un obj de tipo URLsearch pa
 const id = params.get("id") // traemos el valor 
 
 const eventos = data.events 
-const fechaActual = data.currentDate
 
 const $detail = document.getElementById('detail-index')
 
