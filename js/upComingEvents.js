@@ -1,12 +1,35 @@
-let eventos = data.events
-let fechaActual = data.currentDate
-const eventosF = eFuturos(eventos)
+// let eventos = data.events
+// let fechaActual = data.currentDate
 
-function eFuturos(even){
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then(response => response.json())
+    .then(data => {
+        let eventos = data.events
+        let fecha = data.currentDate
+        const eventosF = eFuturos(eventos, fecha)
+        cardsUpComing(eventosF, seccion)
+        todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventosF)))
+        $check.innerHTML = generarCheckbox(todasLasCategorias)
+
+        $check.addEventListener('change', cruzarBusqueda)
+        $input.addEventListener('input', cruzarBusqueda)
+
+        function cruzarBusqueda(){
+            const filtroInput = busquedaInputText($input, eventosF)
+            const filtroCheck = busquedaCheck($input,filtroInput, eventosF)
+            if(filtroCheck.length === 0){
+                return renderizar(mensajeNotFound(), 'section-upcomingEvent')
+            }
+            return renderizar(generarCards(filtroCheck), 'section-upcomingEvent')
+        }
+    })
+    .catch(error => console.log(error))
+
+function eFuturos(even, fecha){
     let upComing = []
 
     for(let evento of even){
-        if(evento.date > fechaActual){
+        if(evento.date > fecha){
             upComing.push(evento)
         }
     }
@@ -40,21 +63,21 @@ function cardsUpComing(arr, lugar){
     lugar.append(div)
 }
 
-cardsUpComing(eventosF, seccion)
+
 
 /*  */
 
 const $check = document.getElementById('checks-upComing')
 const $input = document.getElementById('busqueda-input-upComing')
 
-const todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventosF)))
+let todasLasCategorias
 
 function categoriasFiltradas(events){
     const categorias = events.map(event => event.category)
     return categorias
 }
 
-$check.innerHTML = generarCheckbox(todasLasCategorias)
+
 
 function generarCheckbox(categorias){
 
@@ -70,8 +93,7 @@ function generarCheckbox(categorias){
     return template
 }
 
-$check.addEventListener('change', cruzarBusqueda)
-$input.addEventListener('input', cruzarBusqueda)
+
 
 function obtenerCheckeados(){
     const checkbox = document.querySelectorAll( 'input[type="checkbox"]:checked' )
@@ -121,11 +143,11 @@ function mensajeNotFound(){
 }
 
 
-function busquedaCheck(valueInput, listaEventos){
+function busquedaCheck(valueInput, listaEventos, eventosFuturos){
     const checkeados = obtenerCheckeados()
     const checkValue = checkeados.map(checkeados => checkeados.value)
 
-    const eventosCheck = eventosF.filter(evento => checkValue.includes(evento.category))
+    const eventosCheck = eventosFuturos.filter(evento => checkValue.includes(evento.category))
 
     if(eventosCheck.length > 0){
         const filtroCruzado = eventosCheck.filter(evento => evento.name.toLowerCase().startsWith(valueInput.value.toLowerCase()))
@@ -135,16 +157,8 @@ function busquedaCheck(valueInput, listaEventos){
     }
 }
 
-function busquedaInputText(busquedaInput){
-    let inputFiltrado = eventosF.filter(evento => evento.name.toLowerCase().startsWith( busquedaInput.value.toLowerCase() ))
+function busquedaInputText(busquedaInput, eventosFuturos){
+    let inputFiltrado = eventosFuturos.filter(evento => evento.name.toLowerCase().startsWith( busquedaInput.value.toLowerCase() ))
     return inputFiltrado
 }
 
-function cruzarBusqueda(){
-    const filtroInput = busquedaInputText($input)
-    const filtroCheck = busquedaCheck($input,filtroInput)
-    if(filtroCheck.length === 0){
-        return renderizar(mensajeNotFound(), 'section-upcomingEvent')
-    }
-    return renderizar(generarCards(filtroCheck), 'section-upcomingEvent')
-}
