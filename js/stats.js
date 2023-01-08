@@ -2,6 +2,7 @@
 const $table = document.getElementById('main-table')
 const eventos = data.events
 
+
 /* categorias */
 const categorias = eventos.map(evento => evento.category)
 const categoriasSinRepetir =  Array.from(new Set(categorias)) 

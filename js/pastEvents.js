@@ -1,6 +1,28 @@
-const eventos = data.events
-const fechaActual = data.currentDate
-const eventosP = ePasados(eventos)
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then(reponse => reponse.json())
+    .then(data => {
+        let eventos = data.events
+        let fecha = data.currentDate
+        const eventosP = ePasados(eventos, fecha)
+        cardsPast(eventosP, seccion)
+
+        let todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventosP)))
+        $check.innerHTML = generarCheckbox(todasLasCategorias)
+
+        $check.addEventListener('change', cruzarBusqueda)
+        $input.addEventListener('input', cruzarBusqueda)
+
+        function cruzarBusqueda(){
+            const filtroInput = busquedaInputText($input, eventosP)
+            const filtroCheck = busquedaCheck($input,filtroInput, eventosP)
+            if(filtroCheck.length === 0){
+                return renderizar(mensajeNotFound(), 'section-pastEvents')
+            }
+            return renderizar(generarCards(filtroCheck), 'section-pastEvents')
+        }
+    })
+    .catch(error => console.log(error))
+
 
 function ePasados(even){
     let past = []
@@ -41,21 +63,20 @@ function cardsPast(arr, lugar){
     lugar.append(div)
 }
 
-cardsPast(eventosP, seccion)
+
 
 /*  */
 
 const $check = document.getElementById('checks-past')
 const $input = document.getElementById('busqueda-input-past')
 
-const todasLasCategorias = Array.from(new Set(categoriasFiltradas(eventosP)))
 
 function categoriasFiltradas(events){
     const categorias = events.map(event => event.category)
     return categorias
 }
 
-$check.innerHTML = generarCheckbox(todasLasCategorias)
+
 
 function generarCheckbox(categorias){
 
@@ -71,8 +92,7 @@ function generarCheckbox(categorias){
     return template
 }
 
-$check.addEventListener('change', cruzarBusqueda)
-$input.addEventListener('input', cruzarBusqueda)
+
 
 function obtenerCheckeados(){
     const checkbox = document.querySelectorAll( 'input[type="checkbox"]:checked' )
@@ -122,11 +142,11 @@ function mensajeNotFound(){
 }
 
 
-function busquedaCheck(valueInput, listaEventos){
+function busquedaCheck(valueInput, listaEventos, todosLosEventos){
     const checkeados = obtenerCheckeados()
     const checkValue = checkeados.map(checkeados => checkeados.value)
 
-    const eventosCheck = eventosP.filter(evento => checkValue.includes(evento.category))
+    const eventosCheck = todosLosEventos.filter(evento => checkValue.includes(evento.category))
 
     if(eventosCheck.length > 0){
         const filtroCruzado = eventosCheck.filter(evento => evento.name.toLowerCase().startsWith(valueInput.value.toLowerCase()))
@@ -136,16 +156,8 @@ function busquedaCheck(valueInput, listaEventos){
     }
 }
 
-function busquedaInputText(busquedaInput){
-    let inputFiltrado = eventosP.filter(evento => evento.name.toLowerCase().startsWith( busquedaInput.value.toLowerCase() ))
+function busquedaInputText(busquedaInput, todosLosEventos){
+    let inputFiltrado = todosLosEventos.filter(evento => evento.name.toLowerCase().startsWith( busquedaInput.value.toLowerCase() ))
     return inputFiltrado
 }
 
-function cruzarBusqueda(){
-    const filtroInput = busquedaInputText($input)
-    const filtroCheck = busquedaCheck($input,filtroInput)
-    if(filtroCheck.length === 0){
-        return renderizar(mensajeNotFound(), 'section-pastEvents')
-    }
-    return renderizar(generarCards(filtroCheck), 'section-pastEvents')
-}
