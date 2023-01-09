@@ -10,14 +10,12 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
         const categorias = eventos.map(evento => evento.category)
         const categoriasSinRepetir =  Array.from(new Set(categorias))
 
-        const gananciasDeEventosFuturos =  gananciasFuturas(eventos, currentDate) // devuelve los eventos con ganancias futuras
-        const ganancias = gananciasDeEventosFuturos.map(evento => evento.estimate * evento.price) // devuelve las ganancias de esos eventos en un array
+        const gananciasDeEventosFuturos =  gananciasEventos(eventosFuturos, currentDate) // devuelve los eventos con ganancias futuras
 
-        const gananciasDeEventosPasados =  gananciaPasada(eventos, currentDate)
-        const gananciasPasadas = gananciasDeEventosPasados.map(evento => evento.assistance * evento.price)
+        const gananciasDeEventosPasados =  gananciasEventos(eventosPasados, currentDate)
 
-        const porcentaje = porcentajeDeGanancia(eventosFuturos)
-        const porcentajePasado = porcentajeDeGananciaPasada(eventosPasados)
+        const porcentajeFuturo = porcentajeDeGanancia(eventosFuturos)
+        const porcentajePasado = porcentajeDeGanancia(eventosPasados)
        
         let mayor = ((eventos[0].estimate / eventos[0].capacity) * 100) || ((eventos[0].assistance / eventos[0].capacity) * 100)
 
@@ -46,35 +44,33 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
             }
         }
         let eventoMayorCapacidad = eventos.find(evento => evento.capacity === mayorCapacidad)
-        console.log(eventoMayorCapacidad)
 
-
-        renderizar(crearTabla(categoriasSinRepetir, ganancias, porcentaje, gananciasPasadas, porcentajePasado, mayorPorcentaje, menorPorcentaje, eventoMayorCapacidad), 'main-table') // recibe dos argumentos (template y contenedor)
+        renderizar(crearTabla(categoriasSinRepetir, gananciasDeEventosFuturos, porcentajeFuturo, gananciasDeEventosPasados, porcentajePasado, mayorPorcentaje, menorPorcentaje, eventoMayorCapacidad), 'main-table') // recibe dos argumentos (template y contenedor)
     })
     .catch(error => console.log(error))
 
 
-function porcentajeDeGanancia(eventosFuturos){
-    const porcentaje = eventosFuturos.map(evento => Math.round( (((evento.estimate / evento.capacity) * 100) * 100)) / 100 );
-    return porcentaje
+function porcentajeDeGanancia(eventos){
+    if(eventos[0].estimate){
+        const porcentaje = eventos.map(evento => Math.round( (((evento.estimate / evento.capacity) * 100) * 100)) / 100 );
+        return porcentaje
+    }else{
+        const porcentaje = eventos.map(evento => Math.round( (((evento.assistance / evento.capacity) * 100) * 100)) / 100 );
+        return porcentaje
+    }
 }
 
-function porcentajeDeGananciaPasada(eventosFuturos){
-    const porcentaje = eventosFuturos.map(evento => Math.round( (((evento.assistance / evento.capacity) * 100) * 100)) / 100 );
-    return porcentaje
+function gananciasEventos(eventos, fechaActual){
+    if(eventos[0].estimate){
+        const ganancias = eventos.filter(evento => evento.date > fechaActual).map(evento => evento.estimate * evento.price)
+        return ganancias
+    }else{
+        const ganancias = eventos.filter(evento => evento.date < fechaActual).map(evento => evento.assistance * evento.price)
+        return ganancias
+    }
 }
 
-function gananciasFuturas(eventos, fechaActual){
-    const ganancias = eventos.filter(evento => evento.date > fechaActual)
-    return ganancias
-}
-
-function gananciaPasada(eventos, fechaActual){
-    const ganancias = eventos.filter(evento => evento.date < fechaActual)
-    return ganancias
-}
-
-function eventosFuturosTabla(categorias, ganancias, porcentaje){
+function eventosTabla(categorias, ganancias, porcentaje){
     let template = ''
 
     for (let i = 0; i < categorias.length; i++) {
@@ -91,24 +87,7 @@ function eventosFuturosTabla(categorias, ganancias, porcentaje){
     return template
 }
 
-function eventosPasadosTabla(categorias, ganancias, porcentaje){
-    let template = ''
-
-    for (let i = 0; i < categorias.length; i++) {
-        template += 
-            `
-                <tr>
-                    <td class="th">${categorias[i]}</td>
-                    <td class="th">${ganancias[i]}</td>
-                    <td class="th">${porcentaje[i]}</td>
-                </tr>
-            
-            `
-    }
-    return template
-}
-
-function crearTabla(categorias, ganancias, porcentaje, gananciasPasadas, porcentajePasado,  porcentajeMasAlto, porcentajeMasBajo, mayorCapacidad){
+function crearTabla(categorias, gananciasDeEventosFuturos, porcentajeFuturo, gananciasPasadas, porcentajePasado,  porcentajeMasAlto, porcentajeMasBajo, mayorCapacidad){
     let template = ''
     template = `
     <table>
@@ -141,7 +120,7 @@ function crearTabla(categorias, ganancias, porcentaje, gananciasPasadas, porcent
             </tr>
         </thead>
         <tbody>
-            ${eventosFuturosTabla(categorias, ganancias, porcentaje)}
+            ${eventosTabla(categorias, gananciasDeEventosFuturos, porcentajeFuturo)}
         </tbody>
 
         <thead>
@@ -155,7 +134,7 @@ function crearTabla(categorias, ganancias, porcentaje, gananciasPasadas, porcent
             </tr>
         </thead>
         <tbody>
-            ${eventosPasadosTabla(categorias, gananciasPasadas, porcentajePasado)}
+            ${eventosTabla(categorias, gananciasPasadas, porcentajePasado)}
         </tbody>
     </table>
     `
