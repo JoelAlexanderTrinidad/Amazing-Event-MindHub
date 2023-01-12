@@ -10,26 +10,26 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
         const categorias = eventos.map(evento => evento.category)
         const categoriasSinRepetir =  Array.from(new Set(categorias))
 
-        const gananciasDeEventosFuturos =  gananciasEventos(eventosFuturos, currentDate) // devuelve los eventos con ganancias futuras
+        const gananciasDeEventosFuturos =  gananciasEventos(eventosFuturos, currentDate) 
 
         const gananciasDeEventosPasados =  gananciasEventos(eventosPasados, currentDate)
 
         const porcentajeFuturo = porcentajeDeGanancia(eventosFuturos)
         const porcentajePasado = porcentajeDeGanancia(eventosPasados)
        
-        let mayor = ((eventos[0].estimate / eventos[0].capacity) * 100) || ((eventos[0].assistance / eventos[0].capacity) * 100)
+        let mayor = ((eventosFuturos[0].estimate / eventosFuturos[0].capacity) * 100)
 
-        for (let i = 0; i < eventos.length; i++) {
-            if(((eventos[i].estimate / eventos[i].capacity) * 100) > mayor || ((eventos[i].assistance / eventos[i].capacity) * 100) > mayor){
-                mayor = ((eventos[i].estimate / eventos[i].capacity) * 100) || ((eventos[i].assistance / eventos[i].capacity) * 100)
+        for (let i = 0; i < eventosFuturos.length; i++) {
+            if(((eventosFuturos[i].estimate / eventosFuturos[i].capacity) * 100) > mayor){
+                mayor = ((eventosFuturos[i].estimate / eventosFuturos[i].capacity) * 100) 
             }
         }
 
-        let menor = ((eventos[0].estimate / eventos[0].capacity) * 100) || ((eventos[0].assistance / eventos[0].capacity) * 100)
+        let menor = ((eventosPasados[0].assistance / eventosPasados[0].capacity) * 100)
 
-        for (let i = 0; i < eventos.length; i++) {
-            if(((eventos[i].estimate / eventos[i].capacity) * 100) < menor || ((eventos[i].assistance / eventos[i].capacity) * 100) < menor){
-                menor = ((eventos[i].estimate / eventos[i].capacity) * 100) || ((eventos[i].assistance / eventos[i].capacity) * 100)
+        for (let i = 0; i < eventosPasados.length; i++) {
+            if(((eventosPasados[i].assistance / eventosPasados[i].capacity) * 100) < menor){
+                menor = ((eventosPasados[i].assistance / eventosPasados[i].capacity) * 100)
             }
         }
         

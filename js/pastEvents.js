@@ -24,7 +24,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
     .catch(error => console.log(error))
 
 
-function ePasados(even){
+function ePasados(even, fechaActual){
     let past = []
     
     for(let evento of even){
@@ -115,7 +115,7 @@ function generarCards(eventosP){
                 <img src=${evento.image} class="img-tarjeta" alt="...">
                 <div class="">
                     <h5 class="pt-1 titulo-tarjeta">${evento.name}</h5>
-                    <p class="texto-tarjeta">${evento.description.slice(0,40)}...</p>
+                    <p class="texto-tarjeta">${evento.description.slice(0,30)}...</p>
                     <p class="text-center pt-2 mb-0">Price: <span class="text-success">USD ${evento.price}</span></p>
                     <p class="texto-tarjeta">Date: ${evento.date}</p>
                     <div class="justify-content-center d-flex">
